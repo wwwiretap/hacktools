@@ -41,7 +41,7 @@ The pinout of the Arduino is printed on the board itself, whilst the pinout of t
 ![40 Pin Raspberry Pi pinout](EXTRA/readme-pics/pinout-rpi.jpg)
 
 2. Connect the Micro USB to USB cable to the Arduino.
-3. Connect the Micro USB to USB Female adapter to the [data port](https://github.com/apacelus/Pi-Keylogger/blob/main/EXTRA/readme-pics/pinout-rpi.jpg) of the Raspberry Pi.
+3. Connect the Micro USB to USB Female adapter to the [data port](https://github.com/DeanDevel/hacktools/blob/main/KEYLOGGERS/HARDWARE/EXTRA/readme-pics/data-port-rpi.jpg) of the Raspberry Pi.
 4. Connect the victims keyboard to the Micro USB to USB Female adapter of the Raspberry Pi
 5. Connect the arduino to the victims computer  
 
