@@ -1,0 +1,10 @@
+[Unit]
+Description=CTRL ALT DEL
+Documentation=man:systemd.special(7)
+DefaultDependencies=no
+Requires=handlecad.service
+After=handlecad.service
+AllowIsolate=yes
+
+[Install]
+Alias=ctrl-alt-del.target

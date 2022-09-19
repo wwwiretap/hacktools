@@ -1,0 +1,59 @@
+/// You can also install sshd server using PowerShell:
+/// LOCATION OF KEYS:: c:\users\admin\.ssh\authorized_keys
+
+/// Hint. To run the PowerShell.exe cli instead of cmd.exe shell when logging in via SSH on Windows 10, you need to run the following command in Windows 10 (under admin account):
+CMD:: New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+CMD:: whoami
+CMD:: get-computerinfo
+
+/////////////////////////////////////
+///START INSTALL VIA POWERSHELL
+CMD:: Add-WindowsCapability -Online -Name OpenSSH.Server*
+CMD:: Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*'
+
+///// UNINSTALL ///// CMD:: Remove-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+
+/// Check the status of ssh-agent and sshd services using the PowerShell
+CMD:: Get-Service -Name *ssh*
+
+/// As you can see, both services are in a Stopped state and not added to the automatic startup list. To start services and configure autostart for them, run the following commands:
+
+CMD:: Start-Service sshd
+CMD:: Set-Service -Name sshd -StartupType 'Automatic'
+CMD:: Start-Service ‘ssh-agent’
+CMD:: Set-Service -Name ‘ssh-agent’ -StartupType 'Automatic'
+
+/// You also need to allow incoming connections to TCP port 22 in the Windows Defender Firewall. You can open the port using netsh:
+CMD:: netsh advfirewall firewall add rule name=”SSHD service” dir=in action=allow protocol=TCP localport=22
+
+///  you can add a firewall rule to allow SSH traffic using PowerShell:
+CMD:: New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+///  you can connect to Windows 10 using any SSH client. To connect from Linux, use the command:
+/// Here, the admin is a local Windows user under which you want to connect. 192.168.1.90 is an IP address of your Windows 10 computer.
+CMD:: ssh -p 22 admin@192.168.1.90
+
+/// If you want to use key-based ssh authentication instead of password authentication, you need to generate a key using ssh-keygen on your client.
+/// Then, the contents of the id_rsa.pub file must be copied to the c:\users\admin\.ssh\authorized_keys file in Windows 10.
+/// After that, you can connect from your Linux client to Windows 10 without a password. Use the command:
+CMD:: ssh -l admin@192.168.1.90
+
+/// You can configure various OpenSSH server settings in Windows using the %programdata%\ssh\sshd_config configuration file.
+/// For example, you can disable password authentication and leave only key-based auth with:
+PubkeyAuthentication yes
+PasswordAuthentication no
+
+/// Here you can also specify a new TCP port (instead of the default TCP 22 port) on which the SSHD will accept connections. For example:
+Port 2222
+
+/// Using the directives AllowGroups, AllowUsers, DenyGroups, DenyUsers, you can specify users and groups who are allowed or denied to connect to Windows via SSH:
+/// DenyUsers theitbros\jbrown@192.168.1.15 — blocks connections to username jbrown from 192.168.1.15 hostsж
+/// DenyUsers theitbros\* — prevent all users from theitbros domain to connect host using sshж
+/// AllowGroups theitbros\ssh_allow — only allow users from theitbtos\ssh_allow connect hostю
+/// The allow and deny rules of sshd are processed in the following order: DenyUsers, AllowUsers, DenyGroups, and AllowGroups.
+/// After making changes to the sshd_config file, you need to restart the sshd service:
+CMD:: Get-Service sshd| Restart-Service –force
+
+/// In previous versions of OpenSSH on Windows, all sshd service logs were written to the text file C:\ProgramData\ssh\logs\sshd.log by default.
+/// On Windows 11, SSH logs can be viewed using the Event Viewer console (eventvwr.msc). All SSH events are available in a separate section Application and Services Logs > OpenSSH > Operational.
+
