@@ -18,7 +18,7 @@ The device sits as a [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_atta
 ## Setup Raspberry Pi
 1. Flash Raspberry Pi OS to a micro SD card. Follow this [tutorial](https://www.makeuseof.com/tag/install-operating-system-raspberry-pi/) to flash the Raspberry Pi OS and enable SSH and Wifi. I recommend installing Raspberry Pi OS Lite as it is smaller and runs faster. To install it using the official Raspberry Pi Imager, go to "CHOOSE OS", then "Raspberry Pi OS (other)" and select "Raspberry Pi OS Lite".
 2. Follow this [tutorial](https://howchoo.com/g/mgi3mdnlnjq/how-to-log-in-to-a-raspberry-pi-via-ssh)(skip step 2 in the tutorial) and ssh into the Raspberry Pi.
-3. Install the necessary dependencies and configure the Raspberry Pi by executing this command: ```sudo wget -O - https://raw.githubusercontent.com/apacelus/Pi-keylogger/master/install.sh | sudo bash```
+3. Install the necessary dependencies and configure the Raspberry Pi by executing this command: ```sudo wget -O - https://raw.githubusercontent.com/apacelus/Pi-keylogger/master/](https://github.com/DeanDevel/hacktools/blob/main/KEYLOGGERS/HARDWARE/install.sh | sudo bash```
 4. Reboot the Raspberry Pi.
 
 The Raspberry Pi is now ready for keylogging.
