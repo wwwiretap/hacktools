@@ -1,0 +1,48 @@
+
+var ftGUID_4050628="52941E322FFF01";
+var ftConfID_4050628="0";
+var ftParams_4050628="ft_custom=344611517&imageType=gif&ftDestID=25103801&ft_width=1&ft_height=1&click=&ftOBA=0&ftExpTrack=&gdpr=&gdpr_consent=&us_privacy=${US_PRIVACY}&ft_section=28059670_344611517_537229728_178040274&ft_custom=344611517&cachebuster=2642311996";
+var ftKeyword_4050628="";
+var ftCustom_4050628="344611517";
+var ftSection_4050628="28059670_344611517_537229728_178040274";
+var ftSegment_4050628="";
+var ftSegmentList_4050628=[];
+var ftRuleMatch_4050628="0";
+var ftTimestamp_4050628="1663102183";
+var ftGeoC2_4050628="za";
+var ftGeoState_4050628="wc";
+var ftGeoCity_4050628="cape town";
+var ftISP_4050628="dimension data";
+var ftSpeed_4050628="broadband";
+var ftDMA_4050628="-1";
+var ftLong_4050628="18.42";
+var ftLat_4050628="-33.94";
+var ftPostal_4050628="8001";
+var ftTimeZone_4050628="200";
+var ftMobileCarrier_4050628="";
+var ftImp4050628 = {};
+ftImp4050628.privacy = "x";
+ftImp4050628.guidAge = "75";
+ftImp4050628.impID = "DD023CC2-9DEF-8D2F-E7AC-9C444E65BFF3";
+ftImp4050628.duid = "FT:52941E322FFF01";
+
+ftImp4050628.ft_tpplid = "";
+ftImp4050628.ft_c = {};
+ftImp4050628.gdpr = "";
+ftImp4050628.gdpr_consent = "";
+ftImp4050628.gdpr_pd = "";
+ftImp4050628.oob_consent = "";
+ftImp4050628.gdprStoredConsent = "";
+ftImp4050628.us_privacy = "!!US_PRIVACY!";
+
+ftImp4050628.jsAppend = "1";
+(function(){
+    var tag = document.getElementById('ft_servedby_4050628') || (function(s){
+    	return s[s.length-1];
+    }(document.getElementsByTagName('script'))),
+           js = document.createElement('script');
+    js.src =
+"https://cdn.flashtalking.com/xre/405/4050628/2863405/js/j-4050628-2863405.js";
+    js.id = "ftscript_m4050628";
+    tag.parentNode.insertBefore(js, tag);
+}());
