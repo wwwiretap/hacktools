@@ -1,4 +1,4 @@
-DNS FOOTPRINTING
+DNS FOOTPRINTING FOR ASN IMPORTANT INFORMATION 
 
 [root@localbox] dig 1-grid.com => 41.185.120.102
 [root@localbox] whois -h whois.cymru.com -- '-v 41.185.120.102'
